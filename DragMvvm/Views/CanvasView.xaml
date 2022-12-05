@@ -1,0 +1,39 @@
+﻿<Window x:Class="DragMvvm.CanvasView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DragMvvm"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        mc:Ignorable="d"
+        x:Name="root"
+        Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Border BorderThickness="3" BorderBrush="Black">
+            <Canvas
+            x:Name="canvas"
+            AllowDrop="True"
+            Background="Transparent"
+            Drop="Canvas_Drop"
+            DragOver="canvas_DragOver"
+            DragLeave="canvas_DragLeave"
+            >
+                <Rectangle
+                x:Name="normalRectangle"
+                Canvas.Left="{Binding X, Mode=TwoWay}"
+                Canvas.Top="{Binding Y, Mode=TwoWay}"
+                Width="50"
+                Height="50"
+                Fill="Red"
+                IsHitTestVisible="{Binding IsChildHitTestVisible, ElementName=root}"
+                MouseMove="Rectangle_MouseMove"
+                />
+            </Canvas>
+        </Border>
+    </Grid>
+</Window>

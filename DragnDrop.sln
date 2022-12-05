@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DragnDrop", "DragDrop\DragnDrop.csproj", "{8E38CF57-7489-4751-8211-26D0101B4EF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DragMvvm", "DragMvvm\DragMvvm.csproj", "{1BD37E4E-2488-4FB3-AC1D-97CF1E87485C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E38CF57-7489-4751-8211-26D0101B4EF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E38CF57-7489-4751-8211-26D0101B4EF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E38CF57-7489-4751-8211-26D0101B4EF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E38CF57-7489-4751-8211-26D0101B4EF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BD37E4E-2488-4FB3-AC1D-97CF1E87485C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BD37E4E-2488-4FB3-AC1D-97CF1E87485C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BD37E4E-2488-4FB3-AC1D-97CF1E87485C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BD37E4E-2488-4FB3-AC1D-97CF1E87485C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1AAAE3B7-2B3B-4733-9A7A-EA21F70935B1}
+	EndGlobalSection
+EndGlobal
