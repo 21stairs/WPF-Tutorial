@@ -61,25 +61,25 @@ namespace DragListView.ViewModels
                 new TodoItemModel("흐오"),
             };
 
-            IncomeCommand = new DelegateCommand<TodoItemModel>(AddTodo);
-            InsertCommand = new DelegateCommand<TodoItemModel, TodoItemModel>(InsertTodo);
-            RemoveCommand = new DelegateCommand<TodoItemModel>(RemoveTodo);
+            IncomeCommand = new DelegateCommand(AddTodo);
+            InsertCommand = new DelegateCommand(InsertTodo);
+            RemoveCommand = new DelegateCommand(RemoveTodo);
         }
 
-        public void AddTodo(TodoItemModel item)
+        public void AddTodo()
         {
-            if (!_todoItemModels.Contains(item))
+            if (!_todoItemModels.Contains(_incomeTodoItem))
             {
-                _todoItemModels.Add(item);
+                _todoItemModels.Add(_incomeTodoItem);
             }
         }
 
-        public void InsertTodo(TodoItemModel insertTodoItem, TodoItemModel targetTodoItem)
+        public void InsertTodo()
         {
-            if(insertTodoItem == targetTodoItem) return;
+            if(_insertTodoItem == _targetTodoItem) return;
 
-            int oldIndex= _todoItemModels.IndexOf(insertTodoItem);
-            int nextIndex = _todoItemModels.IndexOf(targetTodoItem);
+            int oldIndex= _todoItemModels.IndexOf(_insertTodoItem);
+            int nextIndex = _todoItemModels.IndexOf(_targetTodoItem);
 
             if (oldIndex != -1 && nextIndex != -1)
             {
@@ -87,9 +87,9 @@ namespace DragListView.ViewModels
             }
         }
 
-        public void RemoveTodo(TodoItemModel item)
+        public void RemoveTodo()
         {
-            _todoItemModels.Remove(item);
+            _todoItemModels.Remove(_removeTodoItem);
         }
     }
 }
