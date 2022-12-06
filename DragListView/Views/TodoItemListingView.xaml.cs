@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DragListView.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -68,7 +69,10 @@ namespace DragListView.Views
         }
 
         public static readonly DependencyProperty DropCommandProperty =
-            DependencyProperty.Register("DropCommand", typeof(ICommand), typeof(TodoItemListingView), new PropertyMetadata(null));
+            DependencyProperty.Register(
+                "DropCommand",
+                typeof(ICommand),
+                typeof(TodoItemListingView), new PropertyMetadata(null));
 
         public ICommand RemoveCommand
         {
@@ -107,7 +111,7 @@ namespace DragListView.Views
             if (result is null && (RemoveCommand?.CanExecute(null) ?? false))
             {
                 RemoveTodoItem = e.Data.GetData(DataFormats.Serializable);
-                RemoveCommand?.Execute(RemoveTodoItem);
+                RemoveCommand?.Execute(null);
             }
         }
 
@@ -142,7 +146,7 @@ namespace DragListView.Views
                 TargetTodoItem = element.DataContext;
                 InsertTodoItem = e.Data.GetData(DataFormats.Serializable);
 
-                InsertCommand?.Execute(InsertTodoItem);
+                InsertCommand?.Execute(null);
             }
         }
 
@@ -151,7 +155,7 @@ namespace DragListView.Views
             if (DropCommand?.CanExecute(null) ?? false)
             {
                 IncomeTodoItem = todoItem;
-                DropCommand?.Execute(IncomeTodoItem);
+                DropCommand?.Execute(null);
             }
         }
 

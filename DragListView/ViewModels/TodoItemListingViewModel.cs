@@ -1,22 +1,22 @@
-﻿using DragListView.Models;
+﻿ using DragListView.Models;
 
 using Prism.Commands;
 using Prism.Mvvm;
 
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace DragListView.ViewModels
 {
     class TodoItemListingViewModel : BindableBase
     {
-        private readonly ObservableCollection<TodoItemModel> _todoItemModels;
-        public IEnumerable<TodoItemModel> TodoItemModels => _todoItemModels;
+        private ObservableCollection<TodoItemModel> _todoItemModels;
+        public ObservableCollection<TodoItemModel> TodoItemModels
+        {
+            get => _todoItemModels;
+            set => SetProperty(ref _todoItemModels, value);
+        }
 
 
         private TodoItemModel _incomeTodoItem;
