@@ -1,25 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DragMvvm
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class CanvasView : Window
     {
+        #region Dependency Properties
 
         public bool IsChildHitTestVisible
         {
@@ -27,11 +14,9 @@ namespace DragMvvm
             set { SetValue(IsChildHitTestVisibleProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for IsChildHitTestVisible.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IsChildHitTestVisibleProperty =
-            DependencyProperty.Register("IsChildHitTestVisible", typeof(bool), typeof(CanvasView), new PropertyMetadata(true));
-
-
+            DependencyProperty.Register("IsChildHitTestVisible", typeof(bool), typeof(CanvasView),
+                new PropertyMetadata(true));
 
 
         public ICommand RectangleRemoveCommand
@@ -40,7 +25,6 @@ namespace DragMvvm
             set { SetValue(RectangleRemoveCommandProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for RectangleRemoveCommand.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty RectangleRemoveCommandProperty =
             DependencyProperty.Register("RectangleRemoveCommand", typeof(ICommand), typeof(CanvasView), 
                 new PropertyMetadata(null));
@@ -52,11 +36,9 @@ namespace DragMvvm
             set { SetValue(RectangleDropCommandProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for RectangleDropCommandProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty RectangleDropCommandProperty =
             DependencyProperty.Register("RectangleDropCommand", typeof(ICommand), typeof(CanvasView),
                 new PropertyMetadata(null));
-
 
 
         public string RemoveRectangleName
@@ -65,16 +47,24 @@ namespace DragMvvm
             set { SetValue(RemoveRectangleNameProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for RemoveRectangleName.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty RemoveRectangleNameProperty =
             DependencyProperty.Register("RemoveRectangleName", typeof(string), typeof(CanvasView), 
                 new FrameworkPropertyMetadata(string.Empty, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
 
 
+        #endregion
+
+        #region Constructors
+
         public CanvasView()
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        #region Methods
+
         private void Rectangle_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -117,5 +107,7 @@ namespace DragMvvm
                 }
             }
         }
+
+        #endregion
     }
 }

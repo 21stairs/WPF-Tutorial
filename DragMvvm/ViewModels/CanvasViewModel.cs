@@ -37,7 +37,17 @@ namespace DragMvvm.ViewModels
 
         public CanvasViewModel()
         {
-            //SaveRectangleCommand = new DelegateCommand();
+            SaveRectangleCommand = new DelegateCommand(Save);
+            DeleteRectangleCommand = new DelegateCommand(Delete);
+        }
+
+        public void Save()
+        {
+            SaveRectangleCommand?.Execute(this);
+        }
+        public void Delete()
+        {
+            DeleteRectangleCommand?.Execute(this);
         }
     }
 }
